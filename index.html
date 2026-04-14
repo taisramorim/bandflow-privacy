@@ -2,127 +2,194 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Privacy Policy & Terms of Use</title>
+  <title>Legal Center | Band Flow</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
+    :root {
+      --bg-color: #0f172a; /* Deep slate blue-black */
+      --card-bg: #1e293b;
+      --primary-green: #10b981; /* Professional Emerald */
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+      --border-color: #334155;
+    }
+
     body {
-      font-family: Arial, sans-serif;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text-main);
+      line-height: 1.7;
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
       max-width: 800px;
-      margin: 40px auto;
-      padding: 0 20px;
-      line-height: 1.6;
-      /* Dark metal background */
-      background-color: #121212;
-      background-image: linear-gradient(145deg, #1c1c1c 0%, #0a0a0a 100%);
-      color: #e0e0e0;
+      margin: 0 auto;
+      padding: 40px 20px;
     }
-    h1 {
-      /* Metallic green accents */
-      color: #4ade80;
-      border-bottom: 2px solid #22c55e;
-      padding-bottom: 10px;
-      text-shadow: 0 0 8px rgba(74, 222, 128, 0.2);
+
+    /* Professional Header Section */
+    .header {
+      text-align: center;
+      margin-bottom: 60px;
+      padding: 40px 0;
+      border-bottom: 1px solid var(--border-color);
     }
-    h2 {
-      color: #4ade80;
-      margin-top: 30px;
+
+    .header h1 {
+      font-size: 2.5rem;
+      font-weight: 800;
+      margin-bottom: 10px;
+      letter-spacing: -0.025em;
     }
-    p {
-      color: #cccccc;
-    }
-    ul {
-      border-left: 2px solid #22c55e;
-      padding-left: 20px;
-      list-style-type: none;
-    }
-    ul li {
-      color: #cccccc;
-      margin-bottom: 5px;
-    }
-    ul li::before {
-      content: "•";
-      color: #4ade80;
-      font-weight: bold;
+
+    .badge {
       display: inline-block;
-      width: 1em;
-      margin-left: -1em;
+      background: rgba(16, 185, 129, 0.1);
+      color: var(--primary-green);
+      padding: 4px 12px;
+      border-radius: 99px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-bottom: 20px;
     }
-    strong {
-      color: #4ade80;
+
+    /* Modern Card Layout */
+    .content-card {
+      background: var(--card-bg);
+      border-radius: 16px;
+      padding: 40px;
+      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+      border: 1px solid var(--border-color);
+      margin-bottom: 40px;
     }
-    hr {
-      border: 0;
-      height: 1px;
-      background: linear-gradient(to right, transparent, #22c55e, transparent);
-      margin: 60px 0;
+
+    h2 {
+      color: var(--primary-green);
+      font-size: 1.5rem;
+      margin-top: 2rem;
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+    }
+
+    h2::before {
+      content: "";
+      display: inline-block;
+      width: 4px;
+      height: 24px;
+      background: var(--primary-green);
+      margin-right: 12px;
+      border-radius: 2px;
+    }
+
+    p, li {
+      color: var(--text-muted);
+      font-size: 1.05rem;
+    }
+
+    ul {
+      padding-left: 20px;
+      list-style: none;
+    }
+
+    ul li {
+      position: relative;
+      margin-bottom: 12px;
+    }
+
+    ul li::before {
+      content: "→";
+      position: absolute;
+      left: -25px;
+      color: var(--primary-green);
+      font-weight: bold;
+    }
+
+    .contact-footer {
+      text-align: center;
+      margin-top: 60px;
+      padding-top: 40px;
+      border-top: 1px solid var(--border-color);
+      color: var(--text-muted);
+      font-size: 0.9rem;
+    }
+
+    a {
+      color: var(--primary-green);
+      text-decoration: none;
+      font-weight: 600;
+      transition: opacity 0.2s;
+    }
+
+    a:hover {
+      text-decoration: underline;
+      opacity: 0.8;
+    }
+
+    /* Print styling */
+    @media print {
+      body { background: white; color: black; }
+      .content-card { box-shadow: none; border: none; }
     }
   </style>
 </head>
 <body>
 
-<h1>Privacy Policy</h1>
+<div class="container">
+  <div class="header">
+    <div class="badge">Legal Documentation</div>
+    <h1>Privacy & Terms</h1>
+    <p style="color: var(--text-muted)">Last Updated: April 14, 2026</p>
+  </div>
 
-<p>Your privacy is important to us. This Privacy Policy explains how we collect, use, and protect your information when you use our app.</p>
+  <div class="content-card">
+    <h1>Privacy Policy</h1>
+    <p>Your privacy is central to our mission. This policy outlines how we handle data to provide you with the best experience.</p>
 
-<h2>Information We Collect</h2>
-<ul>
-  <li>Name</li>
-  <li>Email address</li>
-</ul>
+    <h2>1. Information Collection</h2>
+    <p>We collect minimal data necessary for core app functionality:</p>
+    <ul>
+      <li><strong>Identity Data:</strong> Name and email address used for account creation.</li>
+      <li><strong>Subscription Status:</strong> Tokenized purchase history to manage Premium features.</li>
+    </ul>
 
-<h2>How We Use Information</h2>
-<p>We use the collected information solely to:</p>
-<ul>
-  <li>Create and manage user accounts</li>
-  <li>Communicate with users regarding app-related updates or support</li>
-</ul>
+    <h2>2. Data Usage</h2>
+    <p>Data is used exclusively to maintain your account, provide cloud synchronization, and offer customer support. We do not engage in data brokerage or sell your information to third parties.</p>
 
-<h2>Children’s Privacy</h2>
-<p>
-This app may be used by children under the age of 13.
-We do not knowingly collect more personal information than necessary.
-If a parent or guardian believes that a child has provided personal information without consent,
-they may contact us, and we will promptly delete the information.
-</p>
+    <h2>3. Children’s Privacy</h2>
+    <p>Our services are not directed to children under the age of 13. We do not knowingly collect personal information from children under 13. If we discover that such data has been provided, we will remove it immediately from our infrastructure.</p>
 
-<h2>Data Sharing</h2>
-<p>We do not sell, rent, or share personal information with third parties, except when required by law.</p>
+    <h2>4. Data Security</h2>
+    <p>We utilize industry-standard encryption to protect your data in transit and at rest. While no system is infallible, we continuously monitor for vulnerabilities.</p>
+  </div>
 
-<h2>Data Security</h2>
-<p>We take reasonable measures to protect personal information from unauthorized access, disclosure, or misuse.</p>
+  <div class="content-card">
+    <h1>Terms of Use (EULA)</h1>
+    <p>By using our application, you agree to these terms and the <a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/">Apple Standard EULA</a>.</p>
 
-<h2>Data Retention</h2>
-<p>We retain personal information only for as long as necessary to provide app functionality or comply with legal obligations.</p>
+    <h2>1. Auto-Renewable Subscriptions</h2>
+    <p>Access to Premium features requires a valid subscription. By subscribing, you acknowledge:</p>
+    <ul>
+      <li>Charges are applied to your Apple ID at confirmation of purchase.</li>
+      <li>Subscriptions auto-renew unless canceled 24 hours before the current period ends.</li>
+      <li>Renewal charges occur within 24 hours prior to the end of the current period.</li>
+      <li>Management of subscriptions occurs via your Apple ID Account Settings.</li>
+    </ul>
 
-<h2>Changes to This Policy</h2>
-<p>We may update this Privacy Policy from time to time. Any changes will be posted on this page.</p>
+    <h2>2. User Responsibilities</h2>
+    <p>You are responsible for the security of your account credentials and for all activities that occur under your account.</p>
 
-<h2>Contact</h2>
-<p>
-If you have any questions about this Privacy Policy, please contact us at:<br>
-<strong>mobile.prismatech@gmail.com</strong>
-</p>
+    <h2>3. Disclaimer of Warranties</h2>
+    <p>The app is provided "as is" without warranties of any kind. We are not liable for any service interruptions or data loss resulting from app usage.</p>
+  </div>
 
-<hr>
-
-<h1>Terms of Use</h1>
-
-<p>Welcome to our app. By accessing or using our application, you agree to be bound by these Terms of Use.</p>
-
-<h2>1. Acceptance of Terms</h2>
-<p>By creating an account or using the app, you agree to comply with and be bound by these terms. If you do not agree, please do not use the app.</p>
-
-<h2>2. User Responsibilities</h2>
-<ul>
-  <li>You are responsible for maintaining the confidentiality of your account credentials.</li>
-  <li>You agree not to use the app for any unlawful or prohibited activities.</li>
-</ul>
-
-<h2>3. Modifications to the App</h2>
-<p>We reserve the right to modify, suspend, or discontinue any part of the app at any time without prior notice.</p>
-
-<h2>4. Limitation of Liability</h2>
-<p>We are not liable for any damages that may occur from your use of the app, including data loss or service interruptions.</p>
+  <div class="contact-footer">
+    <p>Questions? Contact our legal team at <strong>mobile.prismatech@gmail.com</strong></p>
+    <p>&copy; 2026 PrismaTech. All rights reserved.</p>
+  </div>
+</div>
 
 </body>
 </html>
