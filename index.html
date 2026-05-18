@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Legal Center | Band Flow</title>
+  <title>Legal Center | PrismaTech</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
     :root {
@@ -21,6 +21,7 @@
       line-height: 1.7;
       margin: 0;
       padding: 0;
+      -webkit-font-smoothing: antialiased;
     }
 
     .container {
@@ -29,7 +30,32 @@
       padding: 40px 20px;
     }
 
-    /* Professional Header Section */
+    /* Top Bar & Selector */
+    .top-bar {
+      display: flex;
+      justify-content: flex-end;
+      margin-bottom: 20px;
+    }
+
+    .lang-selector {
+      background-color: var(--card-bg);
+      color: var(--text-main);
+      border: 1px solid var(--border-color);
+      padding: 8px 16px;
+      border-radius: 8px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      cursor: pointer;
+      outline: none;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+
+    .lang-selector:focus {
+      border-color: var(--primary-green);
+      box-shadow: 0 0 0 2px rgba(16, 185, 129, 0.2);
+    }
+
+    /* Header Section */
     .header {
       text-align: center;
       margin-bottom: 60px;
@@ -48,27 +74,34 @@
       display: inline-block;
       background: rgba(16, 185, 129, 0.1);
       color: var(--primary-green);
-      padding: 4px 12px;
+      padding: 6px 14px;
       border-radius: 99px;
       font-size: 0.85rem;
       font-weight: 600;
       margin-bottom: 20px;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
     }
 
-    /* Modern Card Layout */
+    /* Card Layout */
     .content-card {
       background: var(--card-bg);
       border-radius: 16px;
       padding: 40px;
-      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
       border: 1px solid var(--border-color);
       margin-bottom: 40px;
     }
 
+    h1 {
+      font-size: 2rem;
+      margin-top: 0;
+    }
+
     h2 {
       color: var(--primary-green);
-      font-size: 1.5rem;
-      margin-top: 2rem;
+      font-size: 1.3rem;
+      margin-top: 2.5rem;
       margin-bottom: 1rem;
       display: flex;
       align-items: center;
@@ -107,13 +140,17 @@
       font-weight: bold;
     }
 
+    strong {
+      color: var(--text-main);
+    }
+
     .contact-footer {
       text-align: center;
       margin-top: 60px;
       padding-top: 40px;
       border-top: 1px solid var(--border-color);
       color: var(--text-muted);
-      font-size: 0.9rem;
+      font-size: 0.95rem;
     }
 
     a {
@@ -128,68 +165,416 @@
       opacity: 0.8;
     }
 
-    /* Print styling */
+    /* Translation Switching Visibility */
+    .lang-section {
+      display: none;
+    }
+
+    .lang-section.active {
+      display: block;
+    }
+
     @media print {
       body { background: white; color: black; }
-      .content-card { box-shadow: none; border: none; }
+      .content-card { box-shadow: none; border: none; padding: 0; }
+      .header, .contact-footer { border-color: #ccc; }
+      h2::before { background: black; }
+      .top-bar { display: none; }
     }
   </style>
 </head>
 <body>
 
 <div class="container">
-  <div class="header">
-    <div class="badge">Legal Documentation</div>
-    <h1>Privacy & Terms</h1>
-    <p style="color: var(--text-muted)">Last Updated: April 14, 2026</p>
+  
+  <!-- Language Selector Dropdown -->
+  <div class="top-bar">
+    <select id="languageSelector" class="lang-selector">
+      <option value="en-uk" selected>English (UK)</option>
+      <option value="pt-br">Português (BR)</option>
+      <option value="fr">Français</option>
+      <option value="it">Italiano</option>
+      <option value="ro">Română</option>
+      <option value="es">Español</option>
+      <option value="de">Deutsch</option>
+    </select>
   </div>
 
-  <div class="content-card">
-    <h1>Privacy Policy</h1>
-    <p>Your privacy is central to our mission. This policy outlines how we handle data to provide you with the best experience.</p>
+  <!-- ==================== ENGLISH (UK) ==================== -->
+  <div id="lang-en-uk" class="lang-section active" lang="en-GB">
+    <div class="header">
+      <div class="badge">Legal Documentation</div>
+      <h1>Privacy & Terms</h1>
+      <p style="color: var(--text-muted)">Last Updated: 14 April 2026</p>
+    </div>
 
-    <h2>1. Information Collection</h2>
-    <p>We collect minimal data necessary for core app functionality:</p>
-    <ul>
-      <li><strong>Identity Data:</strong> Name and email address used for account creation.</li>
-      <li><strong>Subscription Status:</strong> Tokenized purchase history to manage Premium features.</li>
-    </ul>
+    <div class="content-card">
+      <h1>Privacy Policy</h1>
+      <p>Your privacy is central to our mission. This policy outlines how we handle data to provide you with the best experience.</p>
 
-    <h2>2. Data Usage</h2>
-    <p>Data is used exclusively to maintain your account, provide cloud synchronization, and offer customer support. We do not engage in data brokerage or sell your information to third parties.</p>
+      <h2>1. Information Collection</h2>
+      <p>We collect the minimal data necessary for core app functionality:</p>
+      <ul>
+        <li><strong>Identity Data:</strong> Name and email address used for account creation.</li>
+        <li><strong>Subscription Status:</strong> Tokenised purchase history to manage Premium features.</li>
+      </ul>
 
-    <h2>3. Children’s Privacy</h2>
-    <p>Our services are not directed to children under the age of 13. We do not knowingly collect personal information from children under 13. If we discover that such data has been provided, we will remove it immediately from our infrastructure.</p>
+      <h2>2. Data Usage</h2>
+      <p>Data is used exclusively to maintain your account, provide cloud synchronisation, and offer customer support. We do not engage in data brokerage or sell your information to third parties.</p>
 
-    <h2>4. Data Security</h2>
-    <p>We utilize industry-standard encryption to protect your data in transit and at rest. While no system is infallible, we continuously monitor for vulnerabilities.</p>
+      <h2>3. Children’s Privacy</h2>
+      <p>Our services are not directed to children under the age of 13. We do not knowingly collect personal information from children under 13. If we discover that such data has been provided, we will remove it immediately from our infrastructure.</p>
+
+      <h2>4. Data Security</h2>
+      <p>We utilise industry-standard encryption to protect your data in transit and at rest. Whilst no system is infallible, we continuously monitor for vulnerabilities.</p>
+    </div>
+
+    <div class="content-card">
+      <h1>Terms of Use (EULA)</h1>
+      <p>By using our application, you agree to these terms and the <a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/">Apple Standard EULA</a>.</p>
+
+      <h2>1. Auto-Renewing Subscriptions</h2>
+      <p>Access to Premium features requires a valid subscription. By subscribing, you acknowledge:</p>
+      <ul>
+        <li>Charges are applied to your Apple ID at confirmation of purchase.</li>
+        <li>Subscriptions auto-renew unless cancelled 24 hours before the current period ends.</li>
+        <li>Renewal charges occur within 24 hours prior to the end of the current period.</li>
+        <li>Management of subscriptions occurs via your Apple ID Account Settings.</li>
+      </ul>
+
+      <h2>2. User Responsibilities</h2>
+      <p>You are responsible for the security of your account credentials and for all activities that occur under your account.</p>
+
+      <h2>3. Disclaimer of Warranties</h2>
+      <p>The app is provided "as is" without warranties of any kind. We are not liable for any service interruptions or data loss resulting from app usage.</p>
+    </div>
   </div>
 
-  <div class="content-card">
-    <h1>Terms of Use (EULA)</h1>
-    <p>By using our application, you agree to these terms and the <a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/">Apple Standard EULA</a>.</p>
+  <!-- ==================== BRAZILIAN PORTUGUESE (PT-BR) ==================== -->
+  <div id="lang-pt-br" class="lang-section" lang="pt-BR">
+    <div class="header">
+      <div class="badge">Documentação Legal</div>
+      <h1>Privacidade e Termos</h1>
+      <p style="color: var(--text-muted)">Última atualização: 14 de abril de 2026</p>
+    </div>
 
-    <h2>1. Auto-Renewable Subscriptions</h2>
-    <p>Access to Premium features requires a valid subscription. By subscribing, you acknowledge:</p>
-    <ul>
-      <li>Charges are applied to your Apple ID at confirmation of purchase.</li>
-      <li>Subscriptions auto-renew unless canceled 24 hours before the current period ends.</li>
-      <li>Renewal charges occur within 24 hours prior to the end of the current period.</li>
-      <li>Management of subscriptions occurs via your Apple ID Account Settings.</li>
-    </ul>
+    <div class="content-card">
+      <h1>Política de Privacidade</h1>
+      <p>A sua privacidade é fundamental para a nossa missão. Esta política descreve como lidamos com os dados para lhe proporcionar a melhor experiência.</p>
 
-    <h2>2. User Responsibilities</h2>
-    <p>You are responsible for the security of your account credentials and for all activities that occur under your account.</p>
+      <h2>1. Coleta de Informações</h2>
+      <p>Coletamos o mínimo de dados necessários para a funcionalidade principal do aplicativo:</p>
+      <ul>
+        <li><strong>Dados de Identidade:</strong> Nome e endereço de e-mail usados para a criação da conta.</li>
+        <li><strong>Status da Assinatura:</strong> Histórico de compras tokenizado para gerenciar os recursos Premium.</li>
+      </ul>
 
-    <h2>3. Disclaimer of Warranties</h2>
-    <p>The app is provided "as is" without warranties of any kind. We are not liable for any service interruptions or data loss resulting from app usage.</p>
+      <h2>2. Uso de Dados</h2>
+      <p>Os dados são usados exclusivamente para manter sua conta, fornecer sincronização em nuvem e oferecer suporte ao cliente. Não atuamos como corretores de dados nem vendemos suas informações a terceiros.</p>
+
+      <h2>3. Privacidade Infantil</h2>
+      <p>Nossos serviços não são direcionados a crianças menores de 13 anos. Não coletamos intencionalmente informações pessoais de menores de 13 anos. Se descobrirmos que tais dados foram fornecidos, os removeremos imediatamente de nossa infraestrutura.</p>
+
+      <h2>4. Segurança de Dados</h2>
+      <p>Utilizamos criptografia padrão do setor para proteger seus dados em trânsito e em repouso. Embora nenhum sistema seja infalível, monitoramos continuamente em busca de vulnerabilidades.</p>
+    </div>
+
+    <div class="content-card">
+      <h1>Termos de Uso (EULA)</h1>
+      <p>Ao usar nosso aplicativo, você concorda com estes termos e com o <a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/">EULA Padrão da Apple</a>.</p>
+
+      <h2>1. Assinaturas Renováveis Automaticamente</h2>
+      <p>O acesso aos recursos Premium requer uma assinatura válida. Ao assinar, você reconhece que:</p>
+      <ul>
+        <li>As cobranças são aplicadas ao seu ID Apple na confirmação da compra.</li>
+        <li>As assinaturas são renovadas automaticamente, a menos que sejam canceladas 24 horas antes do fim do período atual.</li>
+        <li>As cobranças de renovação ocorrem nas 24 horas anteriores ao final do período atual.</li>
+        <li>O gerenciamento das assinaturas é feito nas Configurações da Conta do seu ID Apple.</li>
+      </ul>
+
+      <h2>2. Responsabilidades do Usuário</h2>
+      <p>Você é responsável pela segurança das credenciais da sua conta e por todas as atividades que ocorrem nela.</p>
+
+      <h2>3. Isenção de Garantias</h2>
+      <p>O aplicativo é fornecido "como está", sem garantias de qualquer tipo. Não nos responsabilizamos por quaisquer interrupções de serviço ou perda de dados resultantes do uso do aplicativo.</p>
+    </div>
   </div>
 
+  <!-- ==================== FRENCH (FR) ==================== -->
+  <div id="lang-fr" class="lang-section" lang="fr">
+    <div class="header">
+      <div class="badge">Documentation Juridique</div>
+      <h1>Confidentialité et Conditions</h1>
+      <p style="color: var(--text-muted)">Dernière mise à jour : 14 avril 2026</p>
+    </div>
+
+    <div class="content-card">
+      <h1>Politique de Confidentialité</h1>
+      <p>Votre confidentialité est au cœur de notre mission. Cette politique décrit comment nous traitons les données pour vous offrir la meilleure expérience.</p>
+
+      <h2>1. Collecte d'Informations</h2>
+      <p>We collect the minimal data necessary for core app functionality:</p>
+      <ul>
+        <li><strong>Données d'Identité :</strong> Nom et adresse e-mail utilisés pour la création du compte.</li>
+        <li><strong>Statut d'Abonnement :</strong> Historique d'achats sous forme de jetons pour gérer les fonctionnalités Premium.</li>
+      </ul>
+
+      <h2>2. Utilisation des Données</h2>
+      <p>Les données sont utilisées exclusivement pour maintenir votre compte, fournir la synchronisation cloud et offrir un support client. Nous ne sommes pas des courtiers en données et ne vendons pas vos informations à des tiers.</p>
+
+      <h2>3. Confidentialité des Enfants</h2>
+      <p>Nos services ne s'adressent pas aux enfants de moins de 13 ans. Nous ne collectons pas sciemment d'informations personnelles auprès d'enfants de moins de 13 ans. Si nous découvrons que de telles données ont été fournies, nous les supprimerons immédiatement de notre infrastructure.</p>
+
+      <h2>4. Sécurité des Données</h2>
+      <p>Nous utilisons un cryptage conforme aux normes de l'industrie pour protéger vos données en transit et au repos. Bien qu'aucun système ne soit infaillible, nous surveillons continuellement les vulnérabilités.</p>
+    </div>
+
+    <div class="content-card">
+      <h1>Conditions d'Utilisation (CLUF)</h1>
+      <p>En utilisant notre application, vous acceptez ces conditions et le <a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/">CLUF standard d'Apple</a>.</p>
+
+      <h2>1. Abonnements Auto-renouvelables</h2>
+      <p>L'accès aux fonctionnalités Premium nécessite un abonnement valide. En vous abonnant, vous reconnaissez que :</p>
+      <ul>
+        <li>Les frais sont facturés sur votre identifiant Apple lors de la confirmation de l'achat.</li>
+        <li>Les abonnements se renouvellent automatiquement sauf s'ils sont annulés 24 heures avant la fin de la période en cours.</li>
+        <li>Les frais de renouvellement sont appliqués dans les 24 heures précédant la fin de la période en cours.</li>
+        <li>La gestion des abonnements s'effectue via les paramètres du compte de votre identifiant Apple.</li>
+      </ul>
+
+      <h2>2. Responsabilités de l'Utilisateur</h2>
+      <p>Vous êtes responsable de la sécurité des identifiants de votre compte et de toutes les activités qui s'y déroulent.</p>
+
+      <h2>3. Exclusion de Garanties</h2>
+      <p>L'application est fournie « en l'état », sans garantie d'aucune sorte. Nous déclinons toute responsabilité en cas d'interruption de service ou de perte de données résultant de l'utilisation de l'application.</p>
+    </div>
+  </div>
+
+  <!-- ==================== ITALIAN (IT) ==================== -->
+  <div id="lang-it" class="lang-section" lang="it">
+    <div class="header">
+      <div class="badge">Documentazione Legale</div>
+      <h1>Privacy e Condizioni</h1>
+      <p style="color: var(--text-muted)">Ultimo aggiornamento: 14 Aprile 2026</p>
+    </div>
+
+    <div class="content-card">
+      <h1>Informativa sulla Privacy</h1>
+      <p>La tua privacy è fondamentale per la nostra missione. Questa politica delinea come gestiamo i dati per offrirti la migliore esperienza.</p>
+
+      <h2>1. Raccolta delle Informazioni</h2>
+      <p>Raccogliamo solo i dati minimi necessari per la funzionalità principale dell'app:</p>
+      <ul>
+        <li><strong>Dati di Identità:</strong> Nome e indirizzo e-mail utilizzati per la creazione dell'account.</li>
+        <li><strong>Stato dell'Abbonamento:</strong> Cronologia degli acquisti tokenizzata per gestire le funzionalità Premium.</li>
+      </ul>
+
+      <h2>2. Utilizzo dei Dati</h2>
+      <p>I dati vengono utilizzati esclusivamente per mantenere il tuo account, fornire la sincronizzazione cloud e offrire assistenza clienti. Non ci occupiamo di intermediazione di dati né vendiamo le tue informazioni a terze parti.</p>
+
+      <h2>3. Privacy dei Minori</h2>
+      <p>I nostri servizi non sono diretti ai minori di 13 anni. Non raccogliamo consapevolmente informazioni personali da bambini di età inferiore a 13 anni. Se doessimo scoprire che tali dati sono stati forniti, li rimuoremo immediatamente dalla nostra infrastruttura.</p>
+
+      <h2>4. Sicurezza dei Dati</h2>
+      <p>Utilizziamo la crittografia standard del settore per proteggere i tuoi dati in transito e inattivi. Sebbene nessun sistema sia infallibile, monitoriamo continuamente la presenza di vulnerabilità.</p>
+    </div>
+
+    <div class="content-card">
+      <h1>Condizioni d'Uso (EULA)</h1>
+      <p>Utilizzando la nossa applicazione, accetti questi termini e l'<a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/">EULA Standard di Apple</a>.</p>
+
+      <h2>1. Abbonamenti con Rinnovo Automatico</h2>
+      <p>L'accesso alle funzionalità Premium richiede un abbonamento valido. Abbonandoti, riconosci che:</p>
+      <ul>
+        <li>Gli addebiti vengono applicati al tuo ID Apple al momento della conferma dell'acquisto.</li>
+        <li>Gli abonnements si rinnovano automaticamente a meno che non vengano annullati 24 ore prima della fine del periodo in corso.</li>
+        <li>Gli addebiti per il rinnovo avvengono entro le 24 ore precedenti la fine del periodo in corso.</li>
+        <li>La gestione degli abbonamenti avviene tramite le Impostazioni Account del tuo ID Apple.</li>
+      </ul>
+
+      <h2>2. Responsabilità dell'Utente</h2>
+      <p>Sei responsabile della sicurezza delle credenziali del tuo account e di tutte le attività che avvengono sotto il tuo account.</p>
+
+      <h2>3. Esclusione di Garanzie</h2>
+      <p>L'app viene fornita "così com'è" senza garanzie di alcun tipo. Non siamo responsabili per eventuali interruzioni del servizio o perdite di dati derivanti dall'uso dell'app.</p>
+    </div>
+  </div>
+
+  <!-- ==================== ROMANIAN (RO) ==================== -->
+  <div id="lang-ro" class="lang-section" lang="ro">
+    <div class="header">
+      <div class="badge">Documentație Legală</div>
+      <h1>Confidențialitate și Termeni</h1>
+      <p style="color: var(--text-muted)">Ultima actualizare: 14 Aprilie 2026</p>
+    </div>
+
+    <div class="content-card">
+      <h1>Politica de Confidențialitate</h1>
+      <p>Confidențialitatea dumneavoastră este esențială pentru misiunea noastră. Această politică prezintă modul în care gestionăm datele pentru a vă oferi cea mai bună experiență.</p>
+
+      <h2>1. Colectarea Informațiilor</h2>
+      <p>Colectăm datele minime necesare pentru funcționalitatea de bază a aplicației:</p>
+      <ul>
+        <li><strong>Date de Identitate:</strong> Numele și adresa de e-mail utilizate pentru crearea contului.</li>
+        <li><strong>Statusul Abonamentului:</strong> Istoricul achizițiilor sub formă de token pentru a gestiona funcțiile Premium.</li>
+      </ul>
+
+      <h2>2. Utilizarea Datelor</h2>
+      <p>Datele sunt utilizate exclusiv pentru a vă menține contul, a oferi sincronizare în cloud și pentru suport clienți. Nu suntem brokeri de date și nu vindem informațiile dumneavoastră unor terțe părți.</p>
+
+      <h2>3. Confidențialitatea Copiilor</h2>
+      <p>Serviciile noastre nu se adresează copiilor sub 13 ani. Nu colectăm cu bună știință informații personale de la copii sub 13 ani. Dacă descoperim că au fost furnizate astfel de date, le vom elimina imediat din infrastructura noastră.</p>
+
+      <h2>4. Securitatea Datelor</h2>
+      <p>Utilizăm o criptare standard în industrie pentru a vă proteja datele aflate în tranzit și stocate. Deși niciun sistem nu este infailibil, monitorizăm în mod continuu vulnerabilitățile.</p>
+    </div>
+
+    <div class="content-card">
+      <h1>Termeni de Utilizare (EULA)</h1>
+      <p>Prin utilizarea aplicației noastre, sunteți de acord cu acești termeni și cu <a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/">Standardul EULA Apple</a>.</p>
+
+      <h2>1. Abonamente cu Reînnoire Automată</h2>
+      <p>Accesul la funcțiile Premium necesită un abonament valabil. Prin abonare, luați la cunoștință că:</p>
+      <ul>
+        <li>Costurile vor fi debitate de pe ID-ul dvs. Apple la confirmarea achiziției.</li>
+        <li>Abonamentele se reînnoiesc automat, cu excepția cazului în care sunt anulate cu 24 de ore înainte de sfârșitul perioadei curente.</li>
+        <li>Taxele de reînnoire se aplică în termen de 24 de ore înainte de sfârșitul perioadei curente.</li>
+        <li>Gestionarea abonamentelor se face prin Setările Contului aferente ID-ului dvs. Apple.</li>
+      </ul>
+
+      <h2>2. Responsabilitățile Utilizatorului</h2>
+      <p>Sunteți responsabil pentru securitatea datelor de conectare la contul dumneavoastră și pentru toate activitățile care au loc sub contul dumneavoastră.</p>
+
+      <h2>3. Excluderea Garanțiilor</h2>
+      <p>Aplicația este furnizată "ca atare", fără garanții de niciun fel. Nu suntem răspunzători pentru nicio întrerupere a serviciilor sau pierdere a datelor care rezultă din utilizarea aplicației.</p>
+    </div>
+  </div>
+
+  <!-- ==================== SPANISH (ES) ==================== -->
+  <div id="lang-es" class="lang-section" lang="es">
+    <div class="header">
+      <div class="badge">Documentación Legal</div>
+      <h1>Privacidad y Términos</h1>
+      <p style="color: var(--text-muted)">Última actualización: 14 de abril de 2026</p>
+    </div>
+
+    <div class="content-card">
+      <h1>Política de Privacidad</h1>
+      <p>Su privacidad es fundamental para nuestra misión. Esta política describe cómo manejamos los datos para brindarle la mejor experiencia.</p>
+
+      <h2>1. Recopilación de Información</h2>
+      <p>Recopilamos los datos mínimos necesarios para la funcionalidad principal de la aplicación:</p>
+      <ul>
+        <li><strong>Datos de Identidad:</strong> Nombre y dirección de correo electrónico utilizados para la creación de la cuenta.</li>
+        <li><strong>Estado de Suscripción:</strong> Historial de compras tokenizado para gestionar las funciones Premium.</li>
+      </ul>
+
+      <h2>2. Uso de Datos</h2>
+      <p>Los datos se utilizan exclusivamente para mantener su cuenta, proporcionar sincronización en la nube y ofrecer atención al cliente. No nos dedicamos a la intermediación de datos ni vendemos su información a terceros.</p>
+
+      <h2>3. Privacidad Infantil</h2>
+      <p>Nuestros servicios no están dirigidos a niños menores de 13 años. No recopilamos intencionalmente información personal de menores de 13 años. Si descubrimos que se han proporcionado dichos datos, los eliminaremos inmediatamente de nuestra infraestructura.</p>
+
+      <h2>4. Seguridad de los Datos</h2>
+      <p>Utilizamos encriptación estándar de la industria para proteger sus datos en tránsito y en reposo. Aunque ningún sistema es infalible, monitoreamos continuamente en busca de vulnerabilidades.</p>
+    </div>
+
+    <div class="content-card">
+      <h1>Términos de Uso (EULA)</h1>
+      <p>Al utilizar nuestra aplicación, usted acepta estos términos y el <a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/">EULA Estándar de Apple</a>.</p>
+
+      <h2>1. Suscripciones Autorrenovables</h2>
+      <p>El acceso a las funciones Premium requiere una suscripción válida. Al suscribirse, usted reconoce que:</p>
+      <ul>
+        <li>Los cargos se aplican a su ID de Apple en la confirmación de la compra.</li>
+        <li>Las suscripciones se renuevan automáticamente a menos que se cancelen 24 horas antes de que finalice el período actual.</li>
+        <li>Los cargos por renovación ocurren dentro de las 24 horas previas al final del período actual.</li>
+        <li>La gestión de las suscripciones se realiza a través de la Configuración de la Cuenta de su ID de Apple.</li>
+      </ul>
+
+      <h2>2. Responsabilidades del Usuario</h2>
+      <p>Usted es responsable de la seguridad de las credenciales de su cuenta y de todas las actividades que ocurran bajo la misma.</p>
+
+      <h2>3. Exención de Garantías</h2>
+      <p>La aplicación se proporciona "tal cual", sin garantías de ningún tipo. No nos hacemos responsables de las interrupciones del servicio o la pérdida de datos resultantes del uso de la aplicación.</p>
+    </div>
+  </div>
+
+  <!-- ==================== GERMAN (DE) ==================== -->
+  <div id="lang-de" class="lang-section" lang="de">
+    <div class="header">
+      <div class="badge">Rechtliche Dokumentation</div>
+      <h1>Datenschutz & Bedingungen</h1>
+      <p style="color: var(--text-muted)">Letzte Aktualisierung: 14. April 2026</p>
+    </div>
+
+    <div class="content-card">
+      <h1>Datenschutzrichtlinie</h1>
+      <p>Ihre Privatsphäre steht im Mittelpunkt unserer Mission. Diese Richtlinie beschreibt, wie wir mit Daten umgehen, um Ihnen das beste Erlebnis zu bieten.</p>
+
+      <h2>1. Informationssammlung</h2>
+      <p>Wir sammeln nur die minimal erforderlichen Daten für die Kernfunktionalität der App:</p>
+      <ul>
+        <li><strong>Identitätsdaten:</strong> Name und E-Mail-Adresse, die zur Kontoerstellung verwendet werden.</li>
+        <li><strong>Abonnementstatus:</strong> Tokenisierter Kaufverlauf zur Verwaltung von Premium-Funktionen.</li>
+      </ul>
+
+      <h2>2. Datennutzung</h2>
+      <p>Daten werden ausschließlich verwendet, um Ihr Konto zu pflegen, Cloud-Synchronisation bereitzustellen und Kundensupport anzubieten. Wir betreiben keinen Datenhandel und verkaufen Ihre Informationen nicht an Dritte.</p>
+
+      <h2>3. Privatsphäre von Kindern</h2>
+      <p>Unsere Dienste richten sich nicht an Kinder unter 13 Jahren. Wir sammeln wissentlich keine personenbezogenen Daten von Kindern unter 13 Jahren. Sollten wir feststellen, dass solche Daten bereitgestellt wurden, entfernen wir diese umgehend aus unserer Infrastruktur.</p>
+
+      <h2>4. Datensicherheit</h2>
+      <p>Wir verwenden branchenübliche Verschlüsselung, um Ihre Daten bei der Übertragung und Speicherung zu schützen. Obwohl kein System unfehlbar ist, überwachen wir kontinuierlich auf Schwachstellen.</p>
+    </div>
+
+    <div class="content-card">
+      <h1>Nutzungsbedingungen (EULA)</h1>
+      <p>Durch die Nutzung unserer Anwendung stimmen Sie diesen Bedingungen und der <a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/">Apple Standard-EULA</a> zu.</p>
+
+      <h2>1. Automatisch verlängerbare Abonnements</h2>
+      <p>Der Zugang zu Premium-Funktionen erfordert ein gültiges Abonnement. Durch das Abonnieren bestätigen Sie:</p>
+      <ul>
+        <li>Gebühren werden Ihrer Apple-ID bei Bestätigung des Kaufs belastet.</li>
+        <li>Abonnements verlängern sich automatisch, sofern sie nicht 24 Stunden vor Ablauf des aktuellen Zeitraums gekündigt werden.</li>
+        <li>Verlängerungsgebühren fallen innerhalb von 24 Stunden vor Ablauf des aktuellen Zeitraums an.</li>
+        <li>Die Verwaltung von Abonnements erfolgt über die Kontoeinstellungen Ihrer Apple-ID.</li>
+      </ul>
+
+      <h2>2. Pflichten des Nutzers</h2>
+      <p>Sie sind für die Sicherheit Ihrer Konto-Zugangsdaten und für alle Aktivitäten, die über Ihr Konto erfolgen, verantwortlich.</p>
+
+      <h2>3. Haftungsausschluss</h2>
+      <p>Die App wird „wie besehen“ ohne jegliche Garantien bereitgestellt. Wir haften nicht für Dienstunterbrechungen oder Datenverluste, die aus der Nutzung der App resultieren.</p>
+    </div>
+  </div>
+
+  <!-- Global Contact Footer -->
   <div class="contact-footer">
     <p>Questions? Contact our legal team at <strong>mobile.prismatech@gmail.com</strong></p>
     <p>&copy; 2026 PrismaTech. All rights reserved.</p>
   </div>
+
 </div>
+
+<!-- Lightweight Language Switcher Engine -->
+<script>
+  document.getElementById('languageSelector').addEventListener('change', function() {
+    const selectedLang = this.value;
+    
+    // Hide all language layers
+    document.querySelectorAll('.lang-section').forEach(section => {
+      section.classList.remove('active');
+    });
+    
+    // Reveal target language layer
+    const targetSection = document.getElementById(`lang-${selectedLang}`);
+    if (targetSection) {
+      targetSection.classList.add('active');
+    }
+  });
+</script>
 
 </body>
 </html>
