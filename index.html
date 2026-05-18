@@ -2,16 +2,17 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Legal Center | PrismaTech</title>
+  <title>Legal Center | Band Flow</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
     :root {
-      --bg-color: #0f172a; /* Deep slate blue-black */
-      --card-bg: #1e293b;
-      --primary-green: #10b981; /* Professional Emerald */
-      --text-main: #f8fafc;
-      --text-muted: #94a3b8;
-      --border-color: #334155;
+      --bg-color: #0b0d0c;       /* Ultra-dark charcoal matching the logo perimeter */
+      --card-bg: #131715;        /* Deep gunmetal with a subtle metallic green undertone */
+      --primary-green: #22c55e;  /* Luminous accent green for links and badges */
+      --logo-green: #1b4d3e;     /* Deep forest metallic green from the guitar bodies */
+      --text-main: #f3f4f6;      /* Clean, crisp off-white for readability */
+      --text-muted: #9ca3af;     /* Balanced muted grey for secondary text */
+      --border-color: #222c26;   /* Subtle, deep green-tinted borders */
     }
 
     body {
@@ -52,15 +53,25 @@
 
     .lang-selector:focus {
       border-color: var(--primary-green);
-      box-shadow: 0 0 0 2px rgba(16, 185, 129, 0.2);
+      box-shadow: 0 0 0 2px rgba(34, 197, 94, 0.2);
     }
 
     /* Header Section */
     .header {
       text-align: center;
       margin-bottom: 60px;
-      padding: 40px 0;
+      padding: 20px 0 40px 0;
       border-bottom: 1px solid var(--border-color);
+    }
+
+    .brand-logo {
+      width: 120px;
+      height: 120px;
+      display: block;
+      margin: 0 auto 24px auto;
+      border-radius: 50%;
+      object-fit: contain;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.6);
     }
 
     .header h1 {
@@ -72,8 +83,9 @@
 
     .badge {
       display: inline-block;
-      background: rgba(16, 185, 129, 0.1);
+      background: rgba(34, 197, 94, 0.08);
       color: var(--primary-green);
+      border: 1px solid rgba(34, 197, 94, 0.2);
       padding: 6px 14px;
       border-radius: 99px;
       font-size: 0.85rem;
@@ -88,7 +100,7 @@
       background: var(--card-bg);
       border-radius: 16px;
       padding: 40px;
-      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.5);
       border: 1px solid var(--border-color);
       margin-bottom: 40px;
     }
@@ -112,7 +124,7 @@
       display: inline-block;
       width: 4px;
       height: 24px;
-      background: var(--primary-green);
+      background: var(--logo-green);
       margin-right: 12px;
       border-radius: 2px;
     }
@@ -179,7 +191,7 @@
       .content-card { box-shadow: none; border: none; padding: 0; }
       .header, .contact-footer { border-color: #ccc; }
       h2::before { background: black; }
-      .top-bar { display: none; }
+      .top-bar, .brand-logo { display: none; }
     }
   </style>
 </head>
@@ -187,7 +199,6 @@
 
 <div class="container">
   
-  <!-- Language Selector Dropdown -->
   <div class="top-bar">
     <select id="languageSelector" class="lang-selector">
       <option value="en-uk" selected>English (UK)</option>
@@ -200,9 +211,9 @@
     </select>
   </div>
 
-  <!-- ==================== ENGLISH (UK) ==================== -->
   <div id="lang-en-uk" class="lang-section active" lang="en-GB">
     <div class="header">
+      <img src="logo_circle-removebg-preview.jpg" alt="Band Flow Logo" class="brand-logo">
       <div class="badge">Legal Documentation</div>
       <h1>Privacy & Terms</h1>
       <p style="color: var(--text-muted)">Last Updated: 14 April 2026</p>
@@ -250,9 +261,9 @@
     </div>
   </div>
 
-  <!-- ==================== BRAZILIAN PORTUGUESE (PT-BR) ==================== -->
   <div id="lang-pt-br" class="lang-section" lang="pt-BR">
     <div class="header">
+      <img src="logo_circle-removebg-preview.jpg" alt="Band Flow Logo" class="brand-logo">
       <div class="badge">Documentação Legal</div>
       <h1>Privacidade e Termos</h1>
       <p style="color: var(--text-muted)">Última atualização: 14 de abril de 2026</p>
@@ -273,7 +284,7 @@
       <p>Os dados são usados exclusivamente para manter sua conta, fornecer sincronização em nuvem e oferecer suporte ao cliente. Não atuamos como corretores de dados nem vendemos suas informações a terceiros.</p>
 
       <h2>3. Privacidade Infantil</h2>
-      <p>Nossos serviços não são direcionados a crianças menores de 13 anos. Não coletamos intencionalmente informações pessoais de menores de 13 anos. Se descobrirmos que tais dados foram fornecidos, os removeremos imediatamente de nossa infraestrutura.</p>
+      <p>Nossos serviços não são direcionados a crianças menores de 13 anos. Não coletamos intencionalmente informações pessoais de menores de 13 anos. Se descobrirmos que tais dados foram fornecidos, los removeremos imediatamente de nossa infraestrutura.</p>
 
       <h2>4. Segurança de Dados</h2>
       <p>Utilizamos criptografia padrão do setor para proteger seus dados em trânsito e em repouso. Embora nenhum sistema seja infalível, monitoramos continuamente em busca de vulnerabilidades.</p>
@@ -283,7 +294,7 @@
       <h1>Termos de Uso (EULA)</h1>
       <p>Ao usar nosso aplicativo, você concorda com estes termos e com o <a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/">EULA Padrão da Apple</a>.</p>
 
-      <h2>1. Assinaturas Renováveis Automaticamente</h2>
+      <h2>1. Assinaturas Renováveis Automatically</h2>
       <p>O acesso aos recursos Premium requer uma assinatura válida. Ao assinar, você reconhece que:</p>
       <ul>
         <li>As cobranças são aplicadas ao seu ID Apple na confirmação da compra.</li>
@@ -300,9 +311,9 @@
     </div>
   </div>
 
-  <!-- ==================== FRENCH (FR) ==================== -->
   <div id="lang-fr" class="lang-section" lang="fr">
     <div class="header">
+      <img src="logo_circle-removebg-preview.jpg" alt="Band Flow Logo" class="brand-logo">
       <div class="badge">Documentation Juridique</div>
       <h1>Confidentialité et Conditions</h1>
       <p style="color: var(--text-muted)">Dernière mise à jour : 14 avril 2026</p>
@@ -313,7 +324,7 @@
       <p>Votre confidentialité est au cœur de notre mission. Cette politique décrit comment nous traitons les données pour vous offrir la meilleure expérience.</p>
 
       <h2>1. Collecte d'Informations</h2>
-      <p>We collect the minimal data necessary for core app functionality:</p>
+      <p>Nous collectons le minimum de données nécessaires au fonctionnement principal de l'application :</p>
       <ul>
         <li><strong>Données d'Identité :</strong> Nom et adresse e-mail utilisés pour la création du compte.</li>
         <li><strong>Statut d'Abonnement :</strong> Historique d'achats sous forme de jetons pour gérer les fonctionnalités Premium.</li>
@@ -323,10 +334,10 @@
       <p>Les données sont utilisées exclusivement pour maintenir votre compte, fournir la synchronisation cloud et offrir un support client. Nous ne sommes pas des courtiers en données et ne vendons pas vos informations à des tiers.</p>
 
       <h2>3. Confidentialité des Enfants</h2>
-      <p>Nos services ne s'adressent pas aux enfants de moins de 13 ans. Nous ne collectons pas sciemment d'informations personnelles auprès d'enfants de moins de 13 ans. Si nous découvrons que de telles données ont été fournies, nous les supprimerons immédiatement de notre infrastructure.</p>
+      <p>Nos services ne s'adresse pas aux enfants de moins de 13 ans. Nous ne collectons pas sciemment d'informations personnelles auprès d'enfants de moins de 13 ans. Si nous découvrons que de telles données ont été fournies, nous les supprimerons immédiatement de notre infrastructure.</p>
 
       <h2>4. Sécurité des Données</h2>
-      <p>Nous utilisons un cryptage conforme aux normes de l'industrie pour protéger vos données en transit et au repos. Bien qu'aucun système ne soit infaillible, nous surveillons continuellement les vulnérabilités.</p>
+      <p>We utilisent un cryptage conforme aux normes de l'industrie pour protéger vos données en transit et au repos. Bien qu'aucun système ne soit infaillible, nous surveillons continuellement les vulnérabilités.</p>
     </div>
 
     <div class="content-card">
@@ -350,9 +361,9 @@
     </div>
   </div>
 
-  <!-- ==================== ITALIAN (IT) ==================== -->
   <div id="lang-it" class="lang-section" lang="it">
     <div class="header">
+      <img src="logo_circle-removebg-preview.jpg" alt="Band Flow Logo" class="brand-logo">
       <div class="badge">Documentazione Legale</div>
       <h1>Privacy e Condizioni</h1>
       <p style="color: var(--text-muted)">Ultimo aggiornamento: 14 Aprile 2026</p>
@@ -360,7 +371,7 @@
 
     <div class="content-card">
       <h1>Informativa sulla Privacy</h1>
-      <p>La tua privacy è fondamentale per la nostra missione. Questa politica delinea come gestiamo i dati per offrirti la migliore esperienza.</p>
+      <p>La tua privacy è fondamentale per la nossa missione. Questa politica delinea come gestiamo i dati per offrirti la migliore esperienza.</p>
 
       <h2>1. Raccolta delle Informazioni</h2>
       <p>Raccogliamo solo i dati minimi necessari per la funzionalità principale dell'app:</p>
@@ -373,7 +384,7 @@
       <p>I dati vengono utilizzati esclusivamente per mantenere il tuo account, fornire la sincronizzazione cloud e offrire assistenza clienti. Non ci occupiamo di intermediazione di dati né vendiamo le tue informazioni a terze parti.</p>
 
       <h2>3. Privacy dei Minori</h2>
-      <p>I nostri servizi non sono diretti ai minori di 13 anni. Non raccogliamo consapevolmente informazioni personali da bambini di età inferiore a 13 anni. Se doessimo scoprire che tali dati sono stati forniti, li rimuoremo immediatamente dalla nostra infrastruttura.</p>
+      <p>I nostri servizi non sono diretti ai minori di 13 anni. Non raccogliamo consapevolmente informazioni personali da bambini di età inferiore a 13 anni. Se dovessimo scoprire che tali dati sono stati forniti, li rimuoremo immediatamente dalla nostra infrastruttura.</p>
 
       <h2>4. Sicurezza dei Dati</h2>
       <p>Utilizziamo la crittografia standard del settore per proteggere i tuoi dati in transito e inattivi. Sebbene nessun sistema sia infallibile, monitoriamo continuamente la presenza di vulnerabilità.</p>
@@ -381,13 +392,13 @@
 
     <div class="content-card">
       <h1>Condizioni d'Uso (EULA)</h1>
-      <p>Utilizzando la nossa applicazione, accetti questi termini e l'<a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/">EULA Standard di Apple</a>.</p>
+      <p>Utilizzando la nostra applicazione, accetti questi termini e l'<a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/">EULA Standard di Apple</a>.</p>
 
       <h2>1. Abbonamenti con Rinnovo Automatico</h2>
       <p>L'accesso alle funzionalità Premium richiede un abbonamento valido. Abbonandoti, riconosci che:</p>
       <ul>
         <li>Gli addebiti vengono applicati al tuo ID Apple al momento della conferma dell'acquisto.</li>
-        <li>Gli abonnements si rinnovano automaticamente a meno che non vengano annullati 24 ore prima della fine del periodo in corso.</li>
+        <li>Gli abbonamenti si rinnovano automaticamente a meno che non vengano annullati 24 ore prima della fine del periodo in corso.</li>
         <li>Gli addebiti per il rinnovo avvengono entro le 24 ore precedenti la fine del periodo in corso.</li>
         <li>La gestione degli abbonamenti avviene tramite le Impostazioni Account del tuo ID Apple.</li>
       </ul>
@@ -400,9 +411,9 @@
     </div>
   </div>
 
-  <!-- ==================== ROMANIAN (RO) ==================== -->
   <div id="lang-ro" class="lang-section" lang="ro">
     <div class="header">
+      <img src="logo_circle-removebg-preview.jpg" alt="Band Flow Logo" class="brand-logo">
       <div class="badge">Documentație Legală</div>
       <h1>Confidențialitate și Termeni</h1>
       <p style="color: var(--text-muted)">Ultima actualizare: 14 Aprilie 2026</p>
@@ -450,9 +461,9 @@
     </div>
   </div>
 
-  <!-- ==================== SPANISH (ES) ==================== -->
   <div id="lang-es" class="lang-section" lang="es">
     <div class="header">
+      <img src="logo_circle-removebg-preview.jpg" alt="Band Flow Logo" class="brand-logo">
       <div class="badge">Documentación Legal</div>
       <h1>Privacidad y Términos</h1>
       <p style="color: var(--text-muted)">Última actualización: 14 de abril de 2026</p>
@@ -500,9 +511,9 @@
     </div>
   </div>
 
-  <!-- ==================== GERMAN (DE) ==================== -->
   <div id="lang-de" class="lang-section" lang="de">
     <div class="header">
+      <img src="logo_circle-removebg-preview.jpg" alt="Band Flow Logo" class="brand-logo">
       <div class="badge">Rechtliche Dokumentation</div>
       <h1>Datenschutz & Bedingungen</h1>
       <p style="color: var(--text-muted)">Letzte Aktualisierung: 14. April 2026</p>
@@ -550,7 +561,6 @@
     </div>
   </div>
 
-  <!-- Global Contact Footer -->
   <div class="contact-footer">
     <p>Questions? Contact our legal team at <strong>mobile.prismatech@gmail.com</strong></p>
     <p>&copy; 2026 PrismaTech. All rights reserved.</p>
@@ -558,7 +568,6 @@
 
 </div>
 
-<!-- Lightweight Language Switcher Engine -->
 <script>
   document.getElementById('languageSelector').addEventListener('change', function() {
     const selectedLang = this.value;
