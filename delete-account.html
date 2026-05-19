@@ -2,48 +2,86 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Delete Account</title>
+  <title>Account Deletion | Band Flow</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      max-width: 800px;
-      margin: 40px auto;
-      padding: 0 20px;
-      line-height: 1.6;
+    :root {
+      --bg: #090a0a;
+      --card: #121414;
+      --accent: #ef4444;
+      --text: #e5e7eb;
+      --muted: #9ca3af;
+      --border: #2d3733;
     }
+    body { font-family: 'Inter', system-ui, sans-serif; background-color: var(--bg); color: var(--text); line-height: 1.6; margin: 0; padding: 40px 20px; }
+    .container { max-width: 600px; margin: 0 auto; }
+    header { text-align: center; margin-bottom: 40px; }
+    .brand-logo { width: 90px; height: 90px; border-radius: 20px; margin-bottom: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
+    .card { background: var(--card); border: 1px solid var(--border); padding: 40px; border-radius: 24px; }
+    .controls { display: flex; justify-content: flex-end; margin-bottom: 20px; }
+    select { background: var(--card); color: var(--text); border: 1px solid var(--border); padding: 8px 16px; border-radius: 12px; cursor: pointer; }
+    h1 { font-size: 1.6rem; margin-bottom: 1.5rem; }
+    h2 { color: var(--accent); font-size: 1.1rem; margin-top: 2rem; }
+    p, li { color: var(--muted); }
+    .contact-box { background: rgba(239, 68, 68, 0.05); border: 1px solid var(--accent); padding: 20px; border-radius: 16px; text-align: center; margin: 20px 0; }
+    strong { color: var(--text); }
   </style>
 </head>
 <body>
 
-<h1>Account and Data Deletion</h1>
+<div class="container">
+  <div class="controls">
+    <select id="langSelector">
+      <option value="en">English (UK)</option>
+      <option value="pt">Português (BR)</option>
+      <option value="fr">Français</option>
+      <option value="it">Italiano</option>
+      <option value="ro">Română</option>
+      <option value="es">Español</option>
+      <option value="de">Deutsch</option>
+    </select>
+  </div>
 
-<p>
-This page explains how users of <strong>Band Flow</strong> can request deletion of their account and associated data.
-</p>
+  <header>
+    <img src="https://firebasestorage.googleapis.com/v0/b/your-pitch.firebasestorage.app/o/logo%2Flogo_circle-removebg-preview.png?alt=media&token=e9ab6a45-3234-48dc-9b60-455508cbfea1" class="brand-logo" alt="Band Flow Logo">
+    <h1 data-key="title">Account & Data Deletion</h1>
+  </header>
 
-<h2>How to Request Account Deletion</h2>
-<p>
-To request deletion of your account and personal data, please email us at:
-</p>
+  <div class="card">
+    <p data-key="intro">This page explains how users of <strong>Band Flow</strong> can request the permanent deletion of their account and all associated personal data.</p>
+    <h2 data-key="h2_request">How to Request Deletion</h2>
+    <p data-key="p_request">To initiate the deletion of your account, please send an email to our support team:</p>
+    <div class="contact-box"><strong>mobile.prismatech@gmail.com</strong></div>
+    <p data-key="p_email">Please include the <strong>email address associated with your account</strong> so that we can verify your request.</p>
+    <h2 data-key="h2_data">What Data Will Be Deleted</h2>
+    <ul id="data-list">
+      <li data-key="list1">Account profile information (Name, Email)</li>
+      <li data-key="list2">Cloud-synchronized project data</li>
+      <li data-key="list3">Subscription status history</li>
+    </ul>
+    <h2 data-key="h2_retention">Retention Period</h2>
+    <p data-key="p_retention">Once verified, all personal data is permanently removed within <strong>30 days</strong>, unless a longer retention period is required by law.</p>
+  </div>
+</div>
 
-<p><strong>mobile.prismatech@gmail.com</strong></p>
+<script>
+  const dict = {
+    en: { title: "Account & Data Deletion", intro: "This page explains how users of <strong>Band Flow</strong> can request the permanent deletion of their account.", h2_request: "How to Request Deletion", p_request: "To initiate the deletion of your account, please send an email to our support team:", p_email: "Please include the <strong>email address associated with your account</strong> so that we can verify your request.", h2_data: "What Data Will Be Deleted", list1: "Account profile information (Name, Email)", list2: "Cloud-synchronized project data", list3: "Subscription status history", h2_retention: "Retention Period", p_retention: "Once verified, all personal data is permanently removed within <strong>30 days</strong>, unless a longer retention period is required by law." },
+    pt: { title: "Exclusão de Conta e Dados", intro: "Esta página explica como os usuários do <strong>Band Flow</strong> podem solicitar a exclusão permanente de sua conta.", h2_request: "Como Solicitar a Exclusão", p_request: "Para iniciar a exclusão da sua conta, envie um e-mail para nossa equipe de suporte:", p_email: "Inclua o <strong>endereço de e-mail associado à sua conta</strong> para que possamos verificar sua solicitação.", h2_data: "Quais Dados Serão Excluídos", list1: "Informações do perfil da conta (Nome, E-mail)", list2: "Dados do projeto sincronizados na nuvem", list3: "Histórico de status da assinatura", h2_retention: "Período de Retenção", p_retention: "Após a verificação, todos os dados pessoais são removidos permanentemente em até <strong>30 dias</strong>, a menos que um período maior seja exigido por lei." },
+    fr: { title: "Suppression de Compte et Données", intro: "Cette page explique comment les utilisateurs de <strong>Band Flow</strong> peuvent demander la suppression permanente de leur compte.", h2_request: "Comment demander la suppression", p_request: "Pour initier la suppression de votre compte, veuillez envoyer un e-mail à notre équipe de support :", p_email: "Veuillez inclure l'<strong>adresse e-mail associée à votre compte</strong> afin que nous puissions vérifier votre demande.", h2_data: "Quelles données seront supprimées", list1: "Informations de profil du compte (Nom, E-mail)", list2: "Données de projet synchronisées dans le cloud", list3: "Historique du statut d'abonnement", h2_retention: "Période de rétention", p_retention: "Une fois vérifiées, toutes les données personnelles sont supprimées définitivement dans un délai de <strong>30 jours</strong>, sauf si une période plus longue est requise par la loi." },
+    it: { title: "Eliminazione Account e Dati", intro: "Questa pagina spiega come gli utenti di <strong>Band Flow</strong> possono richiedere l'eliminazione permanente del proprio account.", h2_request: "Come richiedere l'eliminazione", p_request: "Per avviare l'eliminazione del tuo account, invia un'email al nostro team di supporto:", p_email: "Includi l'<strong>indirizzo email associato al tuo account</strong> in modo che possiamo verificare la tua richiesta.", h2_data: "Quali dati verranno eliminati", list1: "Informazioni sul profilo dell'account (Nome, Email)", list2: "Dati del progetto sincronizzati nel cloud", list3: "Cronologia dello stato dell'abbonamento", h2_retention: "Periodo di conservazione", p_retention: "Una volta verificati, tutti i dati personali vengono rimossi definitivamente entro <strong>30 giorni</strong>, a meno che un periodo più lungo non sia richiesto dalla legge." },
+    ro: { title: "Ștergerea Contului și a Datelor", intro: "Această pagină explică modul în care utilizatorii <strong>Band Flow</strong> pot solicita ștergerea permanentă a contului.", h2_request: "Cum să solicitați ștergerea", p_request: "Pentru a iniția ștergerea contului, vă rugăm să trimiteți un e-mail echipei noastre de asistență:", p_email: "Vă rugăm să includeți <strong>adresa de e-mail asociată contului dvs.</strong> pentru a ne permite să verificăm solicitarea.", h2_data: "Ce date vor fi șterse", list1: "Informații profil cont (Nume, E-mail)", list2: "Datele proiectului sincronizate în cloud", list3: "Istoricul statusului abonamentului", h2_retention: "Perioada de retenție", p_retention: "După verificare, toate datele personale sunt eliminate permanent în termen de <strong>30 de zile</strong>, cu excepția cazului în care legea impune o perioadă mai lungă." },
+    es: { title: "Eliminación de Cuenta y Datos", intro: "Esta página explica cómo los usuarios de <strong>Band Flow</strong> pueden solicitar la eliminación permanente de su cuenta.", h2_request: "Cómo solicitar la eliminación", p_request: "Para iniciar la eliminación de su cuenta, envíe un correo electrónico a nuestro equipo de soporte:", p_email: "Por favor, incluya la <strong>dirección de correo electrónico asociada a su cuenta</strong> para que podamos verificar su solicitud.", h2_data: "Qué datos serán eliminados", list1: "Información del perfil de la cuenta (Nombre, Correo)", list2: "Datos del proyecto sincronizados en la nube", list3: "Historial de estado de suscripción", h2_retention: "Período de retención", p_retention: "Una vez verificados, todos los datos personales se eliminan permanentemente en un plazo de <strong>30 días</strong>, a menos que la ley exija un período más largo." },
+    de: { title: "Konto- und Datenlöschung", intro: "Diese Seite erklärt, wie Benutzer von <strong>Band Flow</strong> die dauerhafte Löschung ihres Kontos anfordern können.", h2_request: "Wie man die Löschung anfordert", p_request: "Um die Löschung Ihres Kontos einzuleiten, senden Sie bitte eine E-Mail an unser Support-Team:", p_email: "Bitte geben Sie die <strong>mit Ihrem Konto verknüpfte E-Mail-Adresse</strong> an, damit wir Ihre Anfrage überprüfen können.", h2_data: "Welche Daten werden gelöscht", list1: "Kontoprofilinformationen (Name, E-Mail)", list2: "Cloud-synchronisierte Projektdaten", list3: "Historie des Abonnementstatus", h2_retention: "Aufbewahrungsfrist", p_retention: "Nach der Überprüfung werden alle personenbezogenen Daten innerhalb von <strong>30 Tagen</strong> dauerhaft gelöscht, sofern gesetzlich keine längere Aufbewahrungsfrist erforderlich ist." }
+  };
 
-<p>
-Include the email address associated with your account in your request.
-</p>
-
-<h2>What Data Is Deleted</h2>
-<ul>
-  <li>Name</li>
-  <li>Email address</li>
-  <li>Account-related data</li>
-</ul>
-
-<h2>Retention Period</h2>
-<p>
-All personal data is permanently deleted within <strong>30 days</strong> of the request, unless a longer retention period is required by law.
-</p>
-
+  document.getElementById('langSelector').addEventListener('change', (e) => {
+    const lang = e.target.value;
+    document.querySelectorAll('[data-key]').forEach(el => {
+      const key = el.getAttribute('data-key');
+      if (dict[lang] && dict[lang][key]) el.innerHTML = dict[lang][key];
+    });
+  });
+</script>
 </body>
 </html>
